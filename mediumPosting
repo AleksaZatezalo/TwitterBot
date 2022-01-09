@@ -1,0 +1,24 @@
+import tweepy
+from requests.api import post
+import urllib
+from urllib.request import urlretrieve
+from urllib.parse import urlparse
+import os
+import requests
+
+# URL To Fetch Latest Post
+def fetch_article(url):
+    response = requests.get(url)
+    posts = response.json()
+    if posts["status"] == "ok":
+        posts = posts["items"]
+        for post in posts:
+            post_title = post["title"]
+            post_url = post["link"]
+            post_image = post['thumbnail']
+            return {"title": post_title, "thumbnail": post_image, "link": post_url}
+
+def post_TitleLink(url):
+    post_dict = fetch_article(url)
+    post_str = f'hey, check out my new article on medium. It is called ' + post_dict['title'] + ".\n" + post_dict["link"]
+    return post_str
