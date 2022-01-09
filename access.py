@@ -1,3 +1,9 @@
+"""
+Description: Logs into twitter using Access tokens.
+Author: Aleksa Zatezalo
+Date: January 9th, 2021
+"""
+
 import tweepy
 from requests.api import post
 import urllib
@@ -17,5 +23,3 @@ BEARER_TOKEN = "AAAAAAAAAAAAAAAAAAAAAOe%2BXwEAAAAAuvnS8EG1EoZIEoushblaStpVoDw%3D
 auth = tweepy.OAuthHandler(API_KEY,API_SECRET_KEY)
 auth.set_access_token(API_ACCESS_TOKEN, API_ACCESS_SECRET)
 api = tweepy.API(auth)
-
-post("https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@aleksazatezalo")
