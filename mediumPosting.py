@@ -30,7 +30,7 @@ def fetch_article(url):
             post_image = post["thumbnail"]
             return {"title": post_title, "thumbnail": post_image, "link": post_url}
 
-def Title_Link(url):
+def Title_Link_Post(url):
     """
     Uses a given URL and fetch_article to craft a post with a corresponding title and link. 
     """
@@ -40,4 +40,3 @@ def Title_Link(url):
     link = post_dict["link"]
     post_str = f'Hey, check out my most recent article on medium.com! It is called ' + "\"" + title + "\"" + ".\n" + link
     return post_str
-    
